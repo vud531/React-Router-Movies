@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Router, Route, NavLink } from 'react-router-dom';
 
 export default class SavedList extends Component {
   constructor(props) {
@@ -12,7 +13,14 @@ export default class SavedList extends Component {
         {this.props.list.map(movie => (
           <span className="saved-movie">{movie.title}</span>
         ))}
-        <div className="home-button">Home</div>
+          <NavLink exact to={"/"} history={"/"}> 
+            <div className="home-button">Home</div>
+          </NavLink>
+
+{/*           
+          <Router>
+            <Route exact path="/" render = {(props) => <SavedList/>} />
+          </Router>  */}
       </div>
     );
   }
